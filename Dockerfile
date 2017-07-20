@@ -15,4 +15,4 @@ ONBUILD COPY . /
 ONBUILD RUN virtualenv /env && /env/bin/pip install -r /app/requirements.txt
 
 EXPOSE 80
-CMD ["/env/bin/python", "hello.py"]
+CMD ["/env/bin/python", "/hello.py"]
