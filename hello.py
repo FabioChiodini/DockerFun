@@ -50,4 +50,4 @@ def index():
     return env.index
 
 if __name__ == "__main__":
-app.run(debug=False,host='0.0.0.0',port=env.port)
+app.run(debug=False,host='0.0.0.0',port=int(os.getenv('PORT', '80'))
