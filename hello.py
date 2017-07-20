@@ -25,4 +25,4 @@ def hello():
     """.format(COLOR,my_uuid,)
 
 if __name__ == "__main__":
-app.run(debug=False,host='0.0.0.0', port=int(os.getenv('PORT', '80')))
+app.run(host='0.0.0.0')
