@@ -1,20 +1,8 @@
 FROM alpine 
 MAINTAINER Fabio Chiodini <@FabioChiodini> 
 
-RUN apk add --update \
-    python \
-    python-dev \
-    py-pip \
-    build-base \
-  && pip install virtualenv \
-  && rm -rf /var/cache/apk/*
-
-ADD ./hello.py /tmp/hello.py
-
-WORKDIR /
-
-ONBUILD COPY . /
-ONBUILD RUN virtualenv /env && /env/bin/pip install -r /app/requirements.txt
-
+RUN apk --update add git python py-pip && rm -f /var/cache/apk/*
+RUN pip install flask requests
+COPY hello.py /tmp/
 EXPOSE 80
-CMD ["/env/bin/python", "/tmp/hello.py"]
+ENTRYPOINT ["python","/tmp/hello.py"]
